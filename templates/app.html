@@ -40,8 +40,8 @@
 		<h2>Location</h2>
 		<div>
 			<select class="location" name="responses" id="responses" required>
-				<option value="" disabled="disabled" selected="selected">Choose a Location</option>
-				{% for place in responses %}
+				<option>{% for place in responses %}</option>
+				
 				<option value="{{place}}">{{place}}</option>
 				{% endfor %}
 			</select>
