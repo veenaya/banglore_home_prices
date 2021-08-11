@@ -1,5 +1,10 @@
 from flask import Flask, request , render_template
+import sys
 import util
+
+import logging
+
+
 
 app = Flask(__name__)
 
@@ -40,6 +45,10 @@ if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
     util.load_saved_artifacts()
     app.run() 
+
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 
 
