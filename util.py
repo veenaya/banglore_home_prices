@@ -34,7 +34,7 @@ def load_saved_artifacts():
 
     global __model
     if __model is None:
-        with open('./banglore_home_prices_model.pickle', 'rb') as f: # open binary format for reading
+        with open('./banglore_home_prices_model.csv', 'rb') as f: # open binary format for reading
             __model = pickle.load(f) # load pickle file and store in model variable
     print("loading saved artifacts...done")
 
