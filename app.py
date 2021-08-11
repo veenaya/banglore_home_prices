@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def predict_home_price():
+
     if request.method == 'POST':
         total_sqft = float(request.form['uiSqft'])
         location = str(request.form['responses'])
@@ -38,7 +39,7 @@ def predict_home_price():
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
     util.load_saved_artifacts()
-    app.run() 
+    app.run(debug=True) 
 
 
 
