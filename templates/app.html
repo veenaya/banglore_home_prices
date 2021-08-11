@@ -11,7 +11,7 @@
 
 <body>
 	<div class="img"></div>
-	<form class="form" action="/" method="POST">
+	<form class="form">
 		<h2>Area (Square Feet)</h2>
 		<input class="area" type="text"class="floatLabel" name="uiSqft" value="1000" required>
 		<h2>BHK</h2>
@@ -39,8 +39,8 @@
 		</div>
 		<h2>Location</h2>
 		<div>
-			<select class="location" name="responses" id="responses" value="1st phase jp nagar" required>
-				<option value="Get" selected="selected">Choose a Location</option>
+			<select class="location" name="responses" id="responses" required>
+				<option value="" selected="selected">Choose a Location</option>
 				{% for place in responses %}
 				<option value="{{place}}">{{place}}</option>
 				{% endfor %}
