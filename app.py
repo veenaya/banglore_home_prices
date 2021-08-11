@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify , render_template
+from flask import Flask, request , render_template
 import util
 
 app = Flask(__name__)
@@ -7,10 +7,10 @@ app = Flask(__name__)
 def predict_home_price():
 
     if request.method == 'POST':
-        total_sqft = float(request.form['uiSqft'])
-        location = str(request.form['responses'])
-        bhk = int(request.form['radio_bhk'])
-        bath = int(request.form['radio_bath'])
+        total_sqft = float(request.form.get('uiSqft', False))
+        location = str(request.form.get('responses', False))
+        bhk = int(request.form.get('radio_bhk', False))
+        bath = int(request.form.get('radio_bath', False))
 
         list = {
             'estimated_price': util.get_estimated_price(location, total_sqft, bhk, bath)
@@ -27,7 +27,7 @@ def predict_home_price():
 
         #return print(list)
         return render_template('app.html', post=lists, responses=place)
-    else:
+    elif request.method == 'GET':
             response = {
             'locations': util.get_location_names()
             }
