@@ -2,8 +2,6 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE-edge">
 	<title>Banglore Home Price Prediction</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="app.js"></script>
@@ -13,7 +11,7 @@
 
 <body>
 	<div class="img"></div>
-	<form class="form" action="/" method="GET">
+	<form class="form" action="/" method="POST">
 		<h2>Area (Square Feet)</h2>
 		<input class="area" type="text"class="floatLabel" name="uiSqft" value="1000" required>
 		<h2>BHK</h2>
@@ -42,10 +40,10 @@
 		<h2>Location</h2>
 		<div>
 			<select class="location" name="responses" id="responses" required>
-				<!-- <option>{% for place in responses %}</option> -->
-				
-				<option value="{{responses}}">{{responses}}</option>
-				<!-- {% endfor %} -->
+				<option value="" disabled="disabled" selected="selected">Choose a Location</option>
+				{% for place in responses %}
+				<option value="{{place}}">{{place}}</option>
+				{% endfor %}
 			</select>
 		</div>
 		<button class="submit" type="submit" value="Post">Estimate Price</button>
