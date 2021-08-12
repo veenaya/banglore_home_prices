@@ -87,8 +87,9 @@ def predict_home_price():
             }
             for key in response:
                 place = response[key]
-                for j in place:
-                    i = j
+
+            for j in place:
+                i = j
 
             return render_template('app.html' ,responses=i)
 
@@ -107,7 +108,7 @@ def predict_home_price():
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
     load_saved_artifacts()
-    app.run(debug=True) 
+    app.run() 
 
 
 
