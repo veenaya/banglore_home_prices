@@ -59,6 +59,7 @@ if __name__ == '__main__':
 
 
 @app.route('/', methods=['GET', 'POST'])
+
 def predict_home_price():
     if request.method == 'POST':
         total_sqft = float(request.form['uiSqft'])
@@ -87,8 +88,9 @@ def predict_home_price():
             }
             for key in response:
                 place = response[key]
-
+            
             for j in place:
+                global i
                 i = j
 
             return render_template('app.html' ,responses=i)
