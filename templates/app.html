@@ -40,10 +40,10 @@
 		<h2>Location</h2>
 		<div>
 			<select class="location" name="responses" id="responses" required>
-				<option>{% for place in responses %}</option>
+				<!-- <option>{% for place in responses %}</option> -->
 				
-				<option value="{{place}}">{{place}}</option>
-				{% endfor %}
+				<option value="{{responses}}">{{responses}}</option>
+				<!-- {% endfor %} -->
 			</select>
 		</div>
 		<button class="submit" type="submit" value="Post">Estimate Price</button>

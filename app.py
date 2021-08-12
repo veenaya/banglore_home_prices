@@ -87,8 +87,22 @@ def predict_home_price():
             }
             for key in response:
                 place = response[key]
-                
-            return render_template('app.html' ,responses=place)
+                for j in place:
+                    i = j
+
+            return render_template('app.html' ,responses=i)
+
+
+# @app.route('/', methods=['GET'])
+# def sample():
+#     response = {
+#             'locations': get_location_names()
+#             }
+#     for key in response:
+#         place = response[key]
+
+#         #return print(list)
+#         return render_template('app.html', post=lists, responses=place)
 
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
