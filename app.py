@@ -2,7 +2,7 @@ from flask import Flask, request , render_template
 import util
 
 app = Flask(__name__)
-#util.load_saved_artifacts()
+util.load_saved_artifacts()
 
 @app.route('/', methods=['GET', 'POST'])
 
@@ -40,7 +40,7 @@ def predict_home_price():
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
     app.run(debug=True) 
-    util.load_saved_artifacts()
+    #util.load_saved_artifacts()
 
 
 
