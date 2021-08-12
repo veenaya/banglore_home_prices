@@ -30,6 +30,23 @@ def get_estimated_price(location, sqft, bhk, bath):
 
 
 def load_saved_artifacts():
+    
+    print("loading saved artifacts...done")
+
+
+def get_location_names():
+    return __locations
+
+
+def get_data_columns():
+     return __data_columns
+
+
+
+@app.route('/', methods=['GET', 'POST'])
+
+def predict_home_price():
+    
     print("loading saved artifacts...start")
     global __data_columns
     global __locations
@@ -42,25 +59,7 @@ def load_saved_artifacts():
     if __model is None:
         with open('./banglore_home_prices_model.pickle', 'rb') as f: # open binary format for reading
             __model = pickle.load(f) # load pickle file and store in model variable
-    print("loading saved artifacts...done")
 
-
-def get_location_names():
-    return __locations
-
-
-def get_data_columns():
-     return __data_columns
-
-
-if __name__ == '__main__':
-    load_saved_artifacts()
-    print(get_location_names())
-
-
-@app.route('/', methods=['GET', 'POST'])
-
-def predict_home_price():
     if request.method == 'POST':
         total_sqft = float(request.form['uiSqft'])
         location = str(request.form['responses'])
@@ -105,8 +104,9 @@ def predict_home_price():
 
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
+    
+    app.run(debug=True) 
     load_saved_artifacts()
-    app.run() 
 
 
 
