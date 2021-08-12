@@ -89,11 +89,7 @@ def predict_home_price():
             for key in response:
                 place = response[key]
             
-            for j in place:
-                global i
-                i = j
-
-            return render_template('app.html' ,responses=i)
+            return render_template('app.html' ,responses=place)
 
 
 # @app.route('/', methods=['GET'])
