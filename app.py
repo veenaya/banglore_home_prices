@@ -51,13 +51,13 @@ def predict_home_price():
     global __data_columns
     global __locations
 
-    with open("./columns.json", "r") as f:
+    with open("./artifacts/columns.json", "r") as f:
         __data_columns = json.load(f)['data_columns'] # convert from json to dic and store in data_columns variable
         __locations = __data_columns[3:]  # first 3 columns are sqft, bath, bhk
 
     global __model
     if __model is None:
-        with open('./banglore_home_prices_model.pickle', 'rb') as f: # open binary format for reading
+        with open('./artifacts/banglore_home_prices_model.pickle', 'rb') as f: # open binary format for reading
             __model = pickle.load(f) # load pickle file and store in model variable
 
     if request.method == 'POST':

@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE-edge">
 	<title>Banglore Home Price Prediction</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="app.js"></script>
+	<!-- <script src="app.js"></script> -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
 	<!-- <link rel="stylesheet" href="C:\Veenayagam Things\ML-things\Flask\combine\Mine\server\static\styles\app.css"> -->
 </head>
@@ -42,8 +42,8 @@
 		<h2>Location</h2>
 		<div>
 			<select class="location" name="responses" id="responses" required>
-				<option>{% for place in responses %}</option>
-				
+				<option value="" disabled="disabled" selected="selected">Choose a Location</option>
+				{% for place in responses %}
 				<option value="{{place}}">{{place}}</option>
 				{% endfor %}
 			</select>
