@@ -2,6 +2,8 @@
 <html>
 
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
 	<title>Banglore Home Price Prediction</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="app.js"></script>
@@ -40,8 +42,8 @@
 		<h2>Location</h2>
 		<div>
 			<select class="location" name="responses" id="responses" required>
-				<option value="" disabled="disabled" selected="selected">Choose a Location</option>
-				{% for place in responses %}
+				<option>{% for place in responses %}</option>
+				
 				<option value="{{place}}">{{place}}</option>
 				{% endfor %}
 			</select>
